@@ -1,4 +1,4 @@
-MIT License
+EasyPantry - MIT License with Attribution Requirements
 
 Copyright (c) 2025 Enrico Stangherlin
 
@@ -9,8 +9,40 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+MANDATORY ATTRIBUTION REQUIREMENTS:
+
+1. The above copyright notice and this permission notice shall be included in
+   all copies or substantial portions of the Software.
+
+2. Any distribution of the Software, whether in source or binary form, must
+   prominently display the following attribution:
+   "EasyPantry - Original software created by Enrico Stangherlin"
+
+3. In any derivative work, application, or product that incorporates this
+   Software (EasyPantry), the name "Enrico Stangherlin" must be clearly visible in:
+
+   - The application's "About" section or credits
+   - Any documentation accompanying the software
+   - The software's startup screen, footer, or equivalent prominent location
+
+4. The copyright symbol "©" followed by "Enrico Stangherlin" must be maintained
+   in all copies and derivative works.
+
+5. Any modification or derivative work must include a clear statement that it
+   is based on the original EasyPantry software by Enrico Stangherlin, while
+   distinguishing the modifications from the original work.
+
+6. Commercial use is permitted, but the attribution requirements above must
+   be strictly maintained in any commercial product or service.
+
+ADDITIONAL PROTECTIONS:
+
+- The name "Enrico Stangherlin" may not be used to endorse or promote products
+  derived from this software without specific prior written permission.
+
+- Any attempt to remove, obscure, or minimize the required attributions
+  constitutes a violation of this license and immediately terminates all
+  rights granted herein.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -19,3 +51,11 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+For questions regarding this license or to request permission for uses not
+covered above, please contact: stangherlin.enrico@gmail.com
+
+License Version: 1.0
+Last Updated: September 2025
