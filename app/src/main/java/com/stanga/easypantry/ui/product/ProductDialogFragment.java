@@ -17,6 +17,7 @@ import com.stanga.easypantry.database.entities.Product;
 public class ProductDialogFragment extends DialogFragment {
     private static final String ARG_PRODUCT = "product";
     private EditText editTextName;
+    private EditText editTextBrand;
     private Product product;
     private ProductViewModel productViewModel;
 
@@ -41,9 +42,11 @@ public class ProductDialogFragment extends DialogFragment {
 
         View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_product, null);
         editTextName = view.findViewById(R.id.edit_text_name);
+        editTextBrand = view.findViewById(R.id.edit_text_brand);
 
         if (product != null) {
             editTextName.setText(product.name);
+            editTextBrand.setText(product.brand);
         }
 
         String title = product == null ? "Add Product" : "Edit Product";
@@ -59,13 +62,16 @@ public class ProductDialogFragment extends DialogFragment {
 
     private void saveProduct() {
         String name = editTextName.getText().toString().trim();
+        String brand = editTextBrand.getText().toString().trim();
+
         if (name.isEmpty()) return;
 
         if (product == null) {
-            Product newProduct = new Product(name);
+            Product newProduct = new Product(name, brand.isEmpty() ? null : brand);
             productViewModel.insert(newProduct);
         } else {
             product.name = name;
+            product.brand = brand.isEmpty() ? null : brand;
             productViewModel.update(product);
         }
     }

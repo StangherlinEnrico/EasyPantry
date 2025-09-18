@@ -47,14 +47,23 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
     class ProductViewHolder extends RecyclerView.ViewHolder {
         private TextView textViewName;
+        private TextView textViewBrand;
 
         public ProductViewHolder(View itemView) {
             super(itemView);
             textViewName = itemView.findViewById(R.id.text_view_name);
+            textViewBrand = itemView.findViewById(R.id.text_view_brand);
         }
 
         public void bind(Product product, OnProductClickListener listener) {
             textViewName.setText(product.name);
+
+            if (product.brand != null && !product.brand.trim().isEmpty()) {
+                textViewBrand.setText(product.brand);
+                textViewBrand.setVisibility(View.VISIBLE);
+            } else {
+                textViewBrand.setVisibility(View.GONE);
+            }
 
             itemView.setOnClickListener(v -> {
                 if (listener != null) listener.onProductClick(product);

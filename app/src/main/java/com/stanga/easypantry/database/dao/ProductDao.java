@@ -31,6 +31,6 @@ public interface ProductDao {
     @Query("DELETE FROM products WHERE id = :id")
     void deleteProductById(int id);
 
-    @Query("SELECT * FROM products WHERE name LIKE :searchQuery ORDER BY name ASC")
+    @Query("SELECT * FROM products WHERE name LIKE :searchQuery OR brand LIKE :searchQuery ORDER BY name ASC")
     LiveData<List<Product>> searchProducts(String searchQuery);
 }
