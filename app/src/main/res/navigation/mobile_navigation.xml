@@ -16,4 +16,10 @@
         android:name="com.stanga.easypantry.ui.pantry.PantryFragment"
         android:label="@string/menu_pantry"
         tools:layout="@layout/fragment_pantry" />
+
+    <fragment
+        android:id="@+id/nav_products"
+        android:name="com.stanga.easypantry.ui.product.ProductFragment"
+        android:label="@string/menu_products"
+        tools:layout="@layout/fragment_product" />
 </navigation>

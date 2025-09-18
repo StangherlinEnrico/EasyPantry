@@ -7,4 +7,5 @@
 
     <string name="menu_home">Home</string>
     <string name="menu_pantry">Pantries</string>
+    <string name="menu_products">Products</string>
 </resources>

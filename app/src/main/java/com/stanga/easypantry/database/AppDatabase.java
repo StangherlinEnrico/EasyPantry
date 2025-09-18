@@ -11,12 +11,14 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import com.stanga.easypantry.database.entities.Pantry;
+import com.stanga.easypantry.database.entities.Product;
 import com.stanga.easypantry.database.dao.PantryDao;
+import com.stanga.easypantry.database.dao.ProductDao;
 import com.stanga.easypantry.utils.Converters;
 
 @Database(
-        entities = {Pantry.class},
-        version = 1,
+        entities = {Pantry.class, Product.class},
+        version = 2,
         exportSchema = false
 )
 @TypeConverters({Converters.class})
@@ -27,14 +29,16 @@ public abstract class AppDatabase extends RoomDatabase {
             Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
     public abstract PantryDao pantryDao();
+    public abstract ProductDao productDao();
 
     private static RoomDatabase.Callback sRoomDatabaseCallback = new RoomDatabase.Callback() {
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
             super.onCreate(db);
             databaseWriteExecutor.execute(() -> {
-                PantryDao dao = INSTANCE.pantryDao();
-                populateInitialData(dao);
+                PantryDao pantryDao = INSTANCE.pantryDao();
+                ProductDao productDao = INSTANCE.productDao();
+                populateInitialData(pantryDao, productDao);
             });
         }
     };
@@ -46,6 +50,7 @@ public abstract class AppDatabase extends RoomDatabase {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                                     AppDatabase.class, "easypantry_database")
                             .addCallback(sRoomDatabaseCallback)
+                            .fallbackToDestructiveMigration() // For version update
                             .build();
                 }
             }
@@ -53,13 +58,13 @@ public abstract class AppDatabase extends RoomDatabase {
         return INSTANCE;
     }
 
-    private static void populateInitialData(PantryDao dao) {
+    private static void populateInitialData(PantryDao pantryDao, ProductDao productDao) {
         // Insert default pantries
-        dao.insertPantry(new Pantry("Dispensa cucina", "pantry"));
-        dao.insertPantry(new Pantry("Dispensa soggiorno", "pantry"));
-        dao.insertPantry(new Pantry("Frigo cucina", "fridge"));
-        dao.insertPantry(new Pantry("Congelatore cucina", "freezer"));
-        dao.insertPantry(new Pantry("Frigo poolhouse", "fridge"));
-        dao.insertPantry(new Pantry("Congelatore poolhouse", "freezer"));
+        pantryDao.insertPantry(new Pantry("Dispensa cucina", "pantry"));
+        pantryDao.insertPantry(new Pantry("Dispensa soggiorno", "pantry"));
+        pantryDao.insertPantry(new Pantry("Frigo cucina", "fridge"));
+        pantryDao.insertPantry(new Pantry("Congelatore cucina", "freezer"));
+        pantryDao.insertPantry(new Pantry("Frigo poolhouse", "fridge"));
+        pantryDao.insertPantry(new Pantry("Congelatore poolhouse", "freezer"));
     }
 }
