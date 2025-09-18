@@ -56,9 +56,14 @@
     <string name="pantry_name_required">Il nome è obbligatorio</string>
     <string name="pantry_delete_confirm_title">Elimina Dispensa</string>
     <string name="pantry_delete_confirm_message">Sei sicuro di voler eliminare \"%s\"? Questa azione non può essere annullata.</string>
+    <string name="dialog_add">Aggiungi</string>
 
     <!-- Dialog actions -->
     <string name="dialog_close">Chiudi</string>
     <string name="dialog_save">Salva</string>
     <string name="dialog_delete">Elimina</string>
+    <string name="pantry_name_helper">Inserisci un nome descrittivo per la tua dispensa</string>
+    <string name="pantry_quick_actions">Azioni Rapide</string>
+    <string name="pantry_delete_subtitle">Rimuovi permanentemente questa dispensa</string>
+    <string name="pantry_name_too_long">Nome troppo lungo (massimo 50 caratteri)</string>
 </resources>

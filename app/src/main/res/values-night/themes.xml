@@ -36,6 +36,9 @@
         <!-- Status bar -->
         <item name="android:statusBarColor">?attr/colorSurface</item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+
+        <item name="colorErrorContainer">@color/error_container_dark</item>
+        <item name="colorOnErrorContainer">@color/on_error_container_dark</item>
     </style>
 
     <style name="Theme.EasyPantry.NoActionBar">

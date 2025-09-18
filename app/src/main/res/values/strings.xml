@@ -56,9 +56,14 @@
     <string name="pantry_name_required">Name is required</string>
     <string name="pantry_delete_confirm_title">Delete Pantry</string>
     <string name="pantry_delete_confirm_message">Are you sure you want to delete \"%s\"? This action cannot be undone.</string>
+    <string name="dialog_add">Add</string>
 
     <!-- Dialog actions -->
     <string name="dialog_close">Close</string>
     <string name="dialog_save">Save</string>
     <string name="dialog_delete">Delete</string>
+    <string name="pantry_name_helper">Enter a descriptive name for your pantry</string>
+    <string name="pantry_quick_actions">Quick Actions</string>
+    <string name="pantry_delete_subtitle">Permanently remove this pantry</string>
+    <string name="pantry_name_too_long">Name is too long (max 50 characters)</string>
 </resources>
