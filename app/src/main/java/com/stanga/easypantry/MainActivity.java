@@ -1,5 +1,6 @@
 package com.stanga.easypantry;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import com.google.android.material.navigation.NavigationView;
@@ -12,6 +13,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.stanga.easypantry.databinding.ActivityMainBinding;
+import com.stanga.easypantry.enums.LanguageMode;
+import com.stanga.easypantry.enums.ThemeMode;
+import com.stanga.easypantry.utils.LanguageHelper;
+import com.stanga.easypantry.utils.ThemeHelper;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,7 +24,20 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
 
     @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(LanguageHelper.createLanguageContext(base));
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Apply saved theme before calling super.onCreate()
+        ThemeMode savedTheme = ThemeHelper.getSavedTheme(this);
+        ThemeHelper.applyTheme(savedTheme);
+
+        // Apply saved language
+        LanguageMode savedLanguage = LanguageHelper.getSavedLanguage(this);
+        LanguageHelper.applyLanguage(this, savedLanguage);
+
         super.onCreate(savedInstanceState);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
@@ -31,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationView navigationView = binding.navView;
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_pantry, R.id.nav_products)
+                R.id.nav_home, R.id.nav_pantry, R.id.nav_products, R.id.nav_settings)
                 .setOpenableLayout(drawer)
                 .build();
 

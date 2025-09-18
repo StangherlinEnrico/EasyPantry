@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">EasyPantry</string>
+    <string name="navigation_drawer_open">Apri menu di navigazione</string>
+    <string name="navigation_drawer_close">Chiudi menu di navigazione</string>
+    <string name="nav_header_title">EasyPantry</string>
+    <string name="nav_header_desc">Intestazione navigazione</string>
+
+    <!-- Menu items -->
+    <string name="menu_home">Home</string>
+    <string name="menu_pantry">Dispense</string>
+    <string name="menu_products">Prodotti</string>
+    <string name="menu_settings">Impostazioni</string>
+
+    <!-- Settings -->
+    <string name="settings_section_appearance">Aspetto</string>
+    <string name="settings_section_about">Informazioni</string>
+    <string name="settings_theme">Tema</string>
+    <string name="settings_language">Lingua</string>
+    <string name="settings_app_version">Versione 1.0</string>
+
+    <!-- Theme options -->
+    <string name="theme_light">Chiaro</string>
+    <string name="theme_dark">Scuro</string>
+    <string name="theme_system">Di sistema</string>
+    <string name="theme_light_description">Usa sempre tema chiaro</string>
+    <string name="theme_dark_description">Usa sempre tema scuro</string>
+    <string name="theme_system_description">Segui impostazioni sistema</string>
+
+    <!-- Language options -->
+    <string name="language_system">Di sistema</string>
+    <string name="language_english">Inglese</string>
+    <string name="language_italian">Italiano</string>
+    <string name="language_system_description">Segui lingua del sistema</string>
+
+    <!-- Dialogs -->
+    <string name="dialog_select_theme">Seleziona tema</string>
+    <string name="dialog_select_language">Seleziona lingua</string>
+    <string name="dialog_cancel">Annulla</string>
+    <string name="dialog_apply">Applica</string>
+
+    <!-- Content descriptions -->
+    <string name="cd_theme_icon">Icona tema</string>
+    <string name="cd_language_icon">Icona lingua</string>
+    <string name="cd_arrow_right">Freccia destra</string>
+</resources>
