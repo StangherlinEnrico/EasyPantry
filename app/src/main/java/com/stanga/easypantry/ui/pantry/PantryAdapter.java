@@ -15,6 +15,11 @@ import com.stanga.easypantry.database.entities.Pantry;
 public class PantryAdapter extends RecyclerView.Adapter<PantryAdapter.PantryViewHolder> {
 
     private List<Pantry> pantries = new ArrayList<>();
+    private OnPantryClickListener listener;
+
+    public PantryAdapter(OnPantryClickListener listener) {
+        this.listener = listener;
+    }
 
     @NonNull
     @Override
@@ -27,7 +32,7 @@ public class PantryAdapter extends RecyclerView.Adapter<PantryAdapter.PantryView
     @Override
     public void onBindViewHolder(@NonNull PantryViewHolder holder, int position) {
         Pantry currentPantry = pantries.get(position);
-        holder.textViewName.setText(currentPantry.name);
+        holder.bind(currentPantry, listener);
     }
 
     @Override
@@ -46,6 +51,19 @@ public class PantryAdapter extends RecyclerView.Adapter<PantryAdapter.PantryView
         public PantryViewHolder(View itemView) {
             super(itemView);
             textViewName = itemView.findViewById(R.id.text_view_name);
+        }
+
+        public void bind(Pantry pantry, OnPantryClickListener listener) {
+            textViewName.setText(pantry.name);
+
+            itemView.setOnClickListener(v -> {
+                if (listener != null) listener.onPantryClick(pantry);
+            });
+
+            itemView.setOnLongClickListener(v -> {
+                if (listener != null) listener.onPantryLongClick(pantry);
+                return true;
+            });
         }
     }
 }
