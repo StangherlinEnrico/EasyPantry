@@ -18,7 +18,7 @@ import com.stanga.easypantry.utils.Converters;
 
 @Database(
         entities = {Pantry.class, Product.class},
-        version = 2,
+        version = 1,
         exportSchema = false
 )
 @TypeConverters({Converters.class})
@@ -50,7 +50,7 @@ public abstract class AppDatabase extends RoomDatabase {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                                     AppDatabase.class, "easypantry_database")
                             .addCallback(sRoomDatabaseCallback)
-                            .fallbackToDestructiveMigration() // For version update
+                            .fallbackToDestructiveMigration()
                             .build();
                 }
             }
@@ -59,12 +59,11 @@ public abstract class AppDatabase extends RoomDatabase {
     }
 
     private static void populateInitialData(PantryDao pantryDao, ProductDao productDao) {
-        // Insert default pantries
-        pantryDao.insertPantry(new Pantry("Dispensa cucina", "pantry"));
-        pantryDao.insertPantry(new Pantry("Dispensa soggiorno", "pantry"));
-        pantryDao.insertPantry(new Pantry("Frigo cucina", "fridge"));
-        pantryDao.insertPantry(new Pantry("Congelatore cucina", "freezer"));
-        pantryDao.insertPantry(new Pantry("Frigo poolhouse", "fridge"));
-        pantryDao.insertPantry(new Pantry("Congelatore poolhouse", "freezer"));
+        pantryDao.insertPantry(new Pantry("Dispensa cucina"));
+        pantryDao.insertPantry(new Pantry("Dispensa soggiorno"));
+        pantryDao.insertPantry(new Pantry("Frigo cucina"));
+        pantryDao.insertPantry(new Pantry("Congelatore cucina"));
+        pantryDao.insertPantry(new Pantry("Frigo poolhouse"));
+        pantryDao.insertPantry(new Pantry("Congelatore poolhouse"));
     }
 }

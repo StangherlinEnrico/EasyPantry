@@ -62,7 +62,7 @@ public class PantryDialogFragment extends DialogFragment {
         if (name.isEmpty()) return;
 
         if (pantry == null) {
-            Pantry newPantry = new Pantry(name, "pantry");
+            Pantry newPantry = new Pantry(name);
             pantryViewModel.insert(newPantry);
         } else {
             pantry.name = name;

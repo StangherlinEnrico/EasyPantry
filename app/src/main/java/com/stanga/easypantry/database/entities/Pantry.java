@@ -15,11 +15,7 @@ public class Pantry implements Serializable {
     @NonNull
     public String name;
 
-    @ColumnInfo(name = "icon")
-    public String icon;
-
-    public Pantry(@NonNull String name, String icon) {
+    public Pantry(@NonNull String name) {
         this.name = name;
-        this.icon = icon;
     }
 }
