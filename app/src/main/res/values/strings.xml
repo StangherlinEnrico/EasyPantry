@@ -42,4 +42,23 @@
     <string name="cd_theme_icon">Theme icon</string>
     <string name="cd_language_icon">Language icon</string>
     <string name="cd_arrow_right">Arrow right</string>
+
+    <!-- Pantry screen -->
+    <string name="pantry_quick_tip">Tap any pantry to manage its contents</string>
+    <string name="pantry_add_new">Add Pantry</string>
+    <string name="pantry_empty_title">No pantries yet</string>
+    <string name="pantry_empty_description">Create your first pantry to start organizing your food storage</string>
+
+    <!-- Pantry management -->
+    <string name="pantry_name_hint">Pantry name</string>
+    <string name="pantry_edit_name">Edit name</string>
+    <string name="pantry_delete">Delete pantry</string>
+    <string name="pantry_name_required">Name is required</string>
+    <string name="pantry_delete_confirm_title">Delete Pantry</string>
+    <string name="pantry_delete_confirm_message">Are you sure you want to delete \"%s\"? This action cannot be undone.</string>
+
+    <!-- Dialog actions -->
+    <string name="dialog_close">Close</string>
+    <string name="dialog_save">Save</string>
+    <string name="dialog_delete">Delete</string>
 </resources>

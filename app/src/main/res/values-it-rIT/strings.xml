@@ -42,4 +42,23 @@
     <string name="cd_theme_icon">Icona tema</string>
     <string name="cd_language_icon">Icona lingua</string>
     <string name="cd_arrow_right">Freccia destra</string>
+
+    <!-- Pantry screen -->
+    <string name="pantry_quick_tip">Tocca una dispensa per gestire il contenuto</string>
+    <string name="pantry_add_new">Aggiungi Dispensa</string>
+    <string name="pantry_empty_title">Nessuna dispensa ancora</string>
+    <string name="pantry_empty_description">Crea la tua prima dispensa per iniziare a organizzare i tuoi alimenti</string>
+
+    <!-- Pantry management -->
+    <string name="pantry_name_hint">Nome dispensa</string>
+    <string name="pantry_edit_name">Modifica nome</string>
+    <string name="pantry_delete">Elimina dispensa</string>
+    <string name="pantry_name_required">Il nome è obbligatorio</string>
+    <string name="pantry_delete_confirm_title">Elimina Dispensa</string>
+    <string name="pantry_delete_confirm_message">Sei sicuro di voler eliminare \"%s\"? Questa azione non può essere annullata.</string>
+
+    <!-- Dialog actions -->
+    <string name="dialog_close">Chiudi</string>
+    <string name="dialog_save">Salva</string>
+    <string name="dialog_delete">Elimina</string>
 </resources>

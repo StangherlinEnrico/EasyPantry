@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.stanga.easypantry.databinding.FragmentPantryBinding;
 import com.stanga.easypantry.database.entities.Pantry;
 
+import java.util.List;
+
 public class PantryFragment extends Fragment implements OnPantryClickListener {
 
     private FragmentPantryBinding binding;
@@ -32,6 +34,7 @@ public class PantryFragment extends Fragment implements OnPantryClickListener {
 
         pantryViewModel.getAllPantries().observe(getViewLifecycleOwner(), pantries -> {
             pantryAdapter.setPantries(pantries);
+            updateEmptyState(pantries);
         });
 
         return root;
@@ -68,12 +71,27 @@ public class PantryFragment extends Fragment implements OnPantryClickListener {
 
     @Override
     public void onPantryClick(Pantry pantry) {
-        showEditPantryDialog(pantry);
+        showManagePantryDialog(pantry);
     }
 
     @Override
     public void onPantryLongClick(Pantry pantry) {
-        showDeleteConfirmDialog(pantry);
+        showManagePantryDialog(pantry);
+    }
+
+    private void showManagePantryDialog(Pantry pantry) {
+        PantryManageDialogFragment.newInstance(pantry)
+                .show(getChildFragmentManager(), "ManagePantryDialog");
+    }
+
+    private void updateEmptyState(List<Pantry> pantries) {
+        if (pantries == null || pantries.isEmpty()) {
+            binding.emptyStateContainer.setVisibility(View.VISIBLE);
+            binding.recyclerViewPantries.setVisibility(View.GONE);
+        } else {
+            binding.emptyStateContainer.setVisibility(View.GONE);
+            binding.recyclerViewPantries.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override

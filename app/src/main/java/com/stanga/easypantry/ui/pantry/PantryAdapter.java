@@ -56,10 +56,12 @@ public class PantryAdapter extends RecyclerView.Adapter<PantryAdapter.PantryView
         public void bind(Pantry pantry, OnPantryClickListener listener) {
             textViewName.setText(pantry.name);
 
+            // Click on entire card opens manage dialog
             itemView.setOnClickListener(v -> {
                 if (listener != null) listener.onPantryClick(pantry);
             });
 
+            // Long click also opens manage dialog
             itemView.setOnLongClickListener(v -> {
                 if (listener != null) listener.onPantryLongClick(pantry);
                 return true;
