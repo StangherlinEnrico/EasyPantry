@@ -1,6 +1,5 @@
 package com.stanga.easypantry.ui.product;
 
-import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.stanga.easypantry.databinding.FragmentProductBinding;
 import com.stanga.easypantry.database.entities.Product;
+
+import java.util.List;
 
 public class ProductFragment extends Fragment implements OnProductClickListener {
 
@@ -31,10 +32,7 @@ public class ProductFragment extends Fragment implements OnProductClickListener 
         setupRecyclerView();
         setupFab();
         setupSearch();
-
-        productViewModel.getSearchResults().observe(getViewLifecycleOwner(), products -> {
-            productAdapter.setProducts(products);
-        });
+        setupObservers();
 
         return root;
     }
@@ -65,33 +63,50 @@ public class ProductFragment extends Fragment implements OnProductClickListener 
         });
     }
 
+    private void setupObservers() {
+        // Initialize search query to trigger initial data load
+        productViewModel.setSearchQuery("");
+
+        productViewModel.getSearchResults().observe(getViewLifecycleOwner(), products -> {
+            if (products != null) {
+                productAdapter.setProducts(products);
+                updateEmptyState(products);
+            } else {
+                // Handle null case - show empty state
+                productAdapter.setProducts(java.util.Collections.emptyList());
+                updateEmptyState(java.util.Collections.emptyList());
+            }
+        });
+    }
+
     private void showAddProductDialog() {
         ProductDialogFragment.newInstance(null)
                 .show(getChildFragmentManager(), "AddProductDialog");
     }
 
-    private void showEditProductDialog(Product product) {
-        ProductDialogFragment.newInstance(product)
-                .show(getChildFragmentManager(), "EditProductDialog");
+    private void showManageProductDialog(Product product) {
+        ProductManageDialogFragment.newInstance(product)
+                .show(getChildFragmentManager(), "ManageProductDialog");
     }
 
-    private void showDeleteConfirmDialog(Product product) {
-        new AlertDialog.Builder(requireContext())
-                .setTitle("Delete Product")
-                .setMessage("Are you sure you want to delete \"" + product.name + "\"?")
-                .setPositiveButton("Delete", (dialog, which) -> productViewModel.delete(product))
-                .setNegativeButton("Cancel", null)
-                .show();
+    private void updateEmptyState(List<Product> products) {
+        if (products == null || products.isEmpty()) {
+            binding.emptyStateContainer.setVisibility(View.VISIBLE);
+            binding.recyclerViewProducts.setVisibility(View.GONE);
+        } else {
+            binding.emptyStateContainer.setVisibility(View.GONE);
+            binding.recyclerViewProducts.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
     public void onProductClick(Product product) {
-        showEditProductDialog(product);
+        showManageProductDialog(product);
     }
 
     @Override
     public void onProductLongClick(Product product) {
-        showDeleteConfirmDialog(product);
+        // Non utilizzato più, tutto gestito nel dialog di gestione
     }
 
     @Override

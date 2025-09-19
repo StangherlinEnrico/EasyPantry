@@ -20,6 +20,9 @@ public class ProductViewModel extends AndroidViewModel {
         super(application);
         repository = new ProductRepository(application);
         allProducts = repository.getAllProducts();
+
+        // Set initial empty search query to trigger data load
+        searchQuery.setValue("");
     }
 
     public LiveData<List<Product>> getAllProducts() {
@@ -37,7 +40,10 @@ public class ProductViewModel extends AndroidViewModel {
     }
 
     public void setSearchQuery(String query) {
-        searchQuery.setValue(query);
+        String currentQuery = searchQuery.getValue();
+        if (!java.util.Objects.equals(currentQuery, query)) {
+            searchQuery.setValue(query);
+        }
     }
 
     public void insert(Product product) {

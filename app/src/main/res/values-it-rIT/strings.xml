@@ -139,4 +139,13 @@
     <!-- Accessibility -->
     <string name="a11y_double_tap_to_select">Tocca due volte per selezionare</string>
     <string name="a11y_swipe_for_options">Scorri per più opzioni</string>
+
+    <!-- Product Section - Additional strings -->
+    <string name="product_name_helper">Inserisci un nome descrittivo per il prodotto</string>
+    <string name="product_brand_helper">Inserisci il nome della marca (opzionale)</string>
+    <string name="product_name_too_long">Nome prodotto troppo lungo (massimo 100 caratteri)</string>
+    <string name="product_brand_too_long">Nome marca troppo lungo (massimo 50 caratteri)</string>
+    <!-- Product Section - Management strings -->
+    <string name="product_delete">Elimina prodotto</string>
+    <string name="product_delete_subtitle">Rimuovi permanentemente questo prodotto</string>
 </resources>

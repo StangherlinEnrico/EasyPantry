@@ -139,4 +139,13 @@
     <!-- Accessibility -->
     <string name="a11y_double_tap_to_select">Double tap to select</string>
     <string name="a11y_swipe_for_options">Swipe for more options</string>
+
+    <!-- Product Section - Additional strings -->
+    <string name="product_name_helper">Enter a descriptive name for the product</string>
+    <string name="product_brand_helper">Enter the brand name (optional)</string>
+    <string name="product_name_too_long">Product name is too long (max 100 characters)</string>
+    <string name="product_brand_too_long">Brand name is too long (max 50 characters)</string>
+    <!-- Product Section - Management strings -->
+    <string name="product_delete">Delete product</string>
+    <string name="product_delete_subtitle">Permanently remove this product</string>
 </resources>

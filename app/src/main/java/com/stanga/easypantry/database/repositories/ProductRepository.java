@@ -1,6 +1,7 @@
 package com.stanga.easypantry.database.repositories;
 
 import android.app.Application;
+import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 
@@ -11,6 +12,7 @@ import com.stanga.easypantry.database.entities.Product;
 import java.util.List;
 
 public class ProductRepository {
+    private static final String TAG = "ProductRepository";
     private final ProductDao productDao;
     private final LiveData<List<Product>> allProducts;
 

@@ -1,7 +1,7 @@
 package com.stanga.easypantry.ui.product;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
-
+import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
@@ -22,23 +22,22 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.stanga.easypantry.R;
 import com.stanga.easypantry.database.entities.Product;
 
-public class ProductDialogFragment extends DialogFragment {
+public class ProductManageDialogFragment extends DialogFragment {
     private static final String ARG_PRODUCT = "product";
 
     private TextInputEditText editTextName, editTextBrand;
     private TextInputLayout textInputName, textInputBrand;
+    private View btnDeleteProduct;
     private MaterialButton btnCancel, btnSave;
 
     private Product product;
     private ProductViewModel productViewModel;
-    private boolean isEditMode = false;
+    private String originalName, originalBrand;
 
-    public static ProductDialogFragment newInstance(@Nullable Product product) {
-        ProductDialogFragment fragment = new ProductDialogFragment();
+    public static ProductManageDialogFragment newInstance(Product product) {
+        ProductManageDialogFragment fragment = new ProductManageDialogFragment();
         Bundle args = new Bundle();
-        if (product != null) {
-            args.putSerializable(ARG_PRODUCT, product);
-        }
+        args.putSerializable(ARG_PRODUCT, product);
         fragment.setArguments(args);
         return fragment;
     }
@@ -50,10 +49,9 @@ public class ProductDialogFragment extends DialogFragment {
 
         if (getArguments() != null) {
             product = (Product) getArguments().getSerializable(ARG_PRODUCT);
-            isEditMode = product != null;
         }
 
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_product, null);
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_product_manage, null);
         initViews(view);
         setupTextWatchers();
         setupClickListeners();
@@ -74,13 +72,10 @@ public class ProductDialogFragment extends DialogFragment {
 
         editTextName.post(() -> {
             editTextName.requestFocus();
-            if (!isEditMode) {
-                InputMethodManager imm = (InputMethodManager) requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-                if (imm != null) {
-                    imm.showSoftInput(editTextName, InputMethodManager.SHOW_IMPLICIT);
-                }
-            } else {
-                editTextName.setSelection(editTextName.getText().length());
+            editTextName.setSelection(editTextName.getText().length());
+            InputMethodManager imm = (InputMethodManager) requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+            if (imm != null) {
+                imm.showSoftInput(editTextName, InputMethodManager.SHOW_IMPLICIT);
             }
         });
 
@@ -92,6 +87,7 @@ public class ProductDialogFragment extends DialogFragment {
         editTextBrand = view.findViewById(R.id.edit_text_brand);
         textInputName = view.findViewById(R.id.text_input_name);
         textInputBrand = view.findViewById(R.id.text_input_brand);
+        btnDeleteProduct = view.findViewById(R.id.btn_delete_product);
         btnCancel = view.findViewById(R.id.btn_cancel);
         btnSave = view.findViewById(R.id.btn_save);
     }
@@ -117,6 +113,7 @@ public class ProductDialogFragment extends DialogFragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                updateSaveButtonState();
                 textInputBrand.setError(null);
             }
 
@@ -126,25 +123,31 @@ public class ProductDialogFragment extends DialogFragment {
     }
 
     private void setupClickListeners() {
+        btnDeleteProduct.setOnClickListener(v -> showDeleteConfirmation());
         btnCancel.setOnClickListener(v -> dismiss());
         btnSave.setOnClickListener(v -> saveProduct());
     }
 
     private void setupInitialData() {
-        if (isEditMode && product != null) {
+        if (product != null) {
+            originalName = product.name;
+            originalBrand = product.brand;
             editTextName.setText(product.name);
             editTextBrand.setText(product.brand);
-            btnSave.setText(getString(R.string.dialog_save));
-        } else {
-            btnSave.setText(getString(R.string.dialog_add));
         }
         updateSaveButtonState();
     }
 
     private void updateSaveButtonState() {
         String currentName = editTextName.getText().toString().trim();
+        String currentBrand = editTextBrand.getText().toString().trim();
+
+        boolean hasNameChanged = !currentName.equals(originalName);
+        boolean hasBrandChanged = !currentBrand.equals(originalBrand == null ? "" : originalBrand);
+        boolean hasChanges = hasNameChanged || hasBrandChanged;
         boolean isValidName = !currentName.isEmpty();
-        btnSave.setEnabled(isValidName);
+
+        btnSave.setEnabled(hasChanges && isValidName);
     }
 
     private void saveProduct() {
@@ -167,16 +170,25 @@ public class ProductDialogFragment extends DialogFragment {
             return;
         }
 
-        if (isEditMode && product != null) {
+        if (product != null) {
             product.name = name;
             product.brand = brand.isEmpty() ? null : brand;
             productViewModel.update(product);
-        } else {
-            Product newProduct = new Product(name, brand.isEmpty() ? null : brand);
-            productViewModel.insert(newProduct);
         }
 
         dismiss();
+    }
+
+    private void showDeleteConfirmation() {
+        new AlertDialog.Builder(requireContext())
+                .setTitle(getString(R.string.product_delete_confirm_title))
+                .setMessage(getString(R.string.product_delete_confirm_message, product.name))
+                .setPositiveButton(getString(R.string.dialog_delete), (dialog, which) -> {
+                    productViewModel.delete(product);
+                    dismiss();
+                })
+                .setNegativeButton(getString(R.string.dialog_cancel), null)
+                .show();
     }
 
     @Override
