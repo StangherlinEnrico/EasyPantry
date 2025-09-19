@@ -82,7 +82,12 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHold
             textViewPantryName.setText(item.pantryName);
 
             // Quantity and unit
-            textViewQuantity.setText(String.valueOf(item.quantity));
+            float displayQuantity = item.quantity / 1000.0f;
+            if (displayQuantity == Math.floor(displayQuantity)) {
+                textViewQuantity.setText(String.valueOf(Math.round(displayQuantity)));
+            } else {
+                textViewQuantity.setText(String.format("%.1f", displayQuantity));
+            }
             textViewUnit.setText(item.unit);
 
             // Click listeners

@@ -166,4 +166,54 @@
 
     <string name="items_count_single">%d articolo</string>
     <string name="items_count_plural">%d articoli</string>
+
+    <!-- Items Section -->
+    <string name="item_add_title">Aggiungi Articolo</string>
+    <string name="item_select_product">Seleziona Prodotto</string>
+    <string name="item_select_product_title">Seleziona Prodotto</string>
+    <string name="item_select_pantry">Seleziona Dispensa</string>
+    <string name="item_select_pantry_title">Seleziona Dispensa</string>
+    <string name="item_no_product_selected">Tocca per selezionare un prodotto</string>
+    <string name="item_no_pantry_selected">Tocca per selezionare una dispensa</string>
+    <string name="item_quantity_hint">Quantità</string>
+    <string name="item_unit_hint">Unità</string>
+    <string name="item_quantity_invalid">Inserisci una quantità valida (maggiore di 0)</string>
+
+    <!-- Items Units -->
+    <string name="unit_kg">kg</string>
+    <string name="unit_g">g</string>
+    <string name="unit_hg">hg</string>
+    <string name="unit_package">confezione</string>
+    <string name="unit_box">scatola</string>
+    <string name="unit_bag">sacco</string>
+    <string name="unit_piece">pz</string>
+    <string name="unit_jar">vasetto</string>
+    <string name="unit_tube">tubetto</string>
+    <string name="unit_cube">cubetto</string>
+    <string name="unit_envelope">bustina</string>
+    <string name="unit_bottle">bottiglia</string>
+
+    <string-array name="flour_yeast_units">
+        <item>@string/unit_kg</item>
+        <item>@string/unit_hg</item>
+        <item>@string/unit_g</item>
+        <item>@string/unit_sacco</item>
+        <item>@string/unit_confezione</item>
+        <item>@string/unit_scatola</item>
+        <item>@string/unit_bustina</item>
+        <item>@string/unit_cubetto</item>
+        <item>@string/unit_tubetto</item>
+        <item>@string/unit_vasetto</item>
+        <item>@string/unit_pz</item>
+    </string-array>
+
+    <!-- Additional unit strings -->
+    <string name="unit_sacco">sacco</string>
+    <string name="unit_confezione">confezione</string>
+    <string name="unit_scatola">scatola</string>
+    <string name="unit_bustina">bustina</string>
+    <string name="unit_cubetto">cubetto</string>
+    <string name="unit_tubetto">tubetto</string>
+    <string name="unit_vasetto">vasetto</string>
+    <string name="unit_pz">pz</string>
 </resources>

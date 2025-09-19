@@ -114,12 +114,16 @@ public class ItemsFragment extends Fragment {
 
     private void setupFab() {
         binding.fabAddItem.setOnClickListener(v -> {
-            // WIP - Add item functionality
+            PantryItemDialogFragment.newInstance()
+                    .show(getChildFragmentManager(), "AddItemDialog");
         });
     }
 
     private void updateDisplay(ItemsViewMode viewMode, List<PantryItemWithDetails> items) {
         Log.d(TAG, "updateDisplay - viewMode: " + viewMode + ", items: " + (items != null ? items.size() : "null"));
+
+        // Show FAB when not in WIP mode
+        binding.fabAddItem.setVisibility(View.VISIBLE);
 
         if (viewMode == ItemsViewMode.SHOW_ALL_ITEMS) {
             showItemsList(items);
@@ -172,8 +176,8 @@ public class ItemsFragment extends Fragment {
         Log.d(TAG, "showEmptyState called");
         binding.recyclerViewItems.setVisibility(View.GONE);
         binding.wipContainer.setVisibility(View.GONE);
-        binding.fabAddItem.setVisibility(View.VISIBLE);
         binding.emptyStateContainer.setVisibility(View.VISIBLE);
+        binding.fabAddItem.setVisibility(View.VISIBLE); // Keep FAB visible even in empty state
     }
 
     private void updateChipSelection(ItemsViewMode viewMode) {

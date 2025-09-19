@@ -34,7 +34,16 @@ public class PantryItem implements Serializable {
     public int pantryId;
 
     @ColumnInfo(name = "quantity")
-    public int quantity = 1;
+    public int quantity = 1000; // Store as int multiplied by 1000 for decimal precision
+
+    // Add helper methods
+    public float getQuantityAsFloat() {
+        return quantity / 1000.0f;
+    }
+
+    public void setQuantityFromFloat(float value) {
+        this.quantity = Math.round(value * 1000);
+    }
 
     @ColumnInfo(name = "unit")
     @NonNull
