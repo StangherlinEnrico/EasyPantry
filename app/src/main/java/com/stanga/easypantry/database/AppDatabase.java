@@ -61,9 +61,20 @@ public abstract class AppDatabase extends RoomDatabase {
     private static void populateInitialData(PantryDao pantryDao, ProductDao productDao) {
         pantryDao.insertPantry(new Pantry("Dispensa cucina"));
         pantryDao.insertPantry(new Pantry("Dispensa soggiorno"));
-        pantryDao.insertPantry(new Pantry("Frigo cucina"));
-        pantryDao.insertPantry(new Pantry("Congelatore cucina"));
-        pantryDao.insertPantry(new Pantry("Frigo poolhouse"));
-        pantryDao.insertPantry(new Pantry("Congelatore poolhouse"));
+
+        // Add default products
+        productDao.insertProduct(new Product("Farina senza glutine", "Caputo"));
+        productDao.insertProduct(new Product("Farina tipo 0", "Vigevano"));
+        productDao.insertProduct(new Product("Pizzeria - Farina tipo 0", "Caputo"));
+        productDao.insertProduct(new Product("Nuvola - Farina tipo 00", "Caputo"));
+        productDao.insertProduct(new Product("Farina tipo 0", "Molino Cosma"));
+        productDao.insertProduct(new Product("Farina tipo 00", "Molino Cosma"));
+        productDao.insertProduct(new Product("Farina di riso", "Rossetto"));
+        productDao.insertProduct(new Product("Farina di ceci", "Rossetto"));
+        productDao.insertProduct(new Product("Farina integrale di farro", "Rachello"));
+        productDao.insertProduct(new Product("Farina di grano saraceno", "Ruggeri"));
+        productDao.insertProduct(new Product("Farina d'avena", "Rossetto"));
+        productDao.insertProduct(new Product("Semola rimacinata", "Caputo"));
+        productDao.insertProduct(new Product("Farina tipo 00", "Belbake"));
     }
 }
