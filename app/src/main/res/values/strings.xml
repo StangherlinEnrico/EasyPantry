@@ -1,24 +1,69 @@
 <resources>
+    <!-- App Identity -->
     <string name="app_name">EasyPantry</string>
+
+    <!-- Navigation -->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">EasyPantry</string>
     <string name="nav_header_desc">Navigation header</string>
 
-    <!-- Menu items -->
+    <!-- Menu Items -->
     <string name="menu_home">Home</string>
     <string name="menu_pantry">Pantries</string>
     <string name="menu_products">Products</string>
     <string name="menu_settings">Settings</string>
 
-    <!-- Settings -->
+    <!-- Home Section -->
+    <string name="home_welcome">Welcome to EasyPantry</string>
+    <string name="home_subtitle">Manage your pantries and products efficiently</string>
+
+    <!-- Pantry Section -->
+    <string name="pantry_quick_tip">Tap any pantry to manage its contents</string>
+    <string name="pantry_add_new">Add Pantry</string>
+    <string name="pantry_empty_title">No pantries yet</string>
+    <string name="pantry_empty_description">Create your first pantry to start organizing your food storage</string>
+    <string name="pantry_name_hint">Pantry name</string>
+    <string name="pantry_name_helper">Enter a descriptive name for your pantry</string>
+    <string name="pantry_name_required">Name is required</string>
+    <string name="pantry_name_too_long">Name is too long (max 50 characters)</string>
+    <string name="pantry_edit_name">Edit name</string>
+    <string name="pantry_delete">Delete pantry</string>
+    <string name="pantry_delete_subtitle">Permanently remove this pantry</string>
+    <string name="pantry_quick_actions">Quick Actions</string>
+    <string name="pantry_delete_confirm_title">Delete Pantry</string>
+    <string name="pantry_delete_confirm_message">Are you sure you want to delete \"%s\"? This action cannot be undone.</string>
+
+    <!-- Product Section -->
+    <string name="product_search_hint">Search products...</string>
+    <string name="product_add_new">Add Product</string>
+    <string name="product_empty_title">No products yet</string>
+    <string name="product_empty_description">Add your first product to get started</string>
+    <string name="product_name_hint">Product name</string>
+    <string name="product_brand_hint">Brand (optional)</string>
+    <string name="product_name_required">Product name is required</string>
+    <string name="product_edit_title">Edit Product</string>
+    <string name="product_add_title">Add Product</string>
+    <string name="product_delete_confirm_title">Delete Product</string>
+    <string name="product_delete_confirm_message">Are you sure you want to delete \"%s\"?</string>
+
+    <!-- Settings Section -->
     <string name="settings_section_appearance">Appearance</string>
     <string name="settings_section_about">About</string>
+    <string name="settings_section_data">Data Management</string>
+    <string name="settings_section_support">Support</string>
     <string name="settings_theme">Theme</string>
     <string name="settings_language">Language</string>
     <string name="settings_app_version">Version 1.0</string>
+    <string name="settings_backup">Backup Data</string>
+    <string name="settings_restore">Restore Data</string>
+    <string name="settings_export">Export Data</string>
+    <string name="settings_import">Import Data</string>
+    <string name="settings_help">Help &amp; FAQ</string>
+    <string name="settings_contact">Contact Support</string>
+    <string name="settings_rate_app">Rate App</string>
 
-    <!-- Theme options -->
+    <!-- Theme Options -->
     <string name="theme_light">Light</string>
     <string name="theme_dark">Dark</string>
     <string name="theme_system">System</string>
@@ -26,44 +71,72 @@
     <string name="theme_dark_description">Always use dark theme</string>
     <string name="theme_system_description">Follow system settings</string>
 
-    <!-- Language options -->
+    <!-- Language Options -->
     <string name="language_system">System</string>
     <string name="language_english">English</string>
     <string name="language_italian">Italian</string>
     <string name="language_system_description">Follow system language</string>
 
-    <!-- Dialogs -->
+    <!-- Dialog Actions -->
+    <string name="dialog_add">Add</string>
+    <string name="dialog_save">Save</string>
+    <string name="dialog_update">Update</string>
+    <string name="dialog_delete">Delete</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="dialog_close">Close</string>
+    <string name="dialog_apply">Apply</string>
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_yes">Yes</string>
+    <string name="dialog_no">No</string>
+
+    <!-- Dialog Titles -->
     <string name="dialog_select_theme">Select theme</string>
     <string name="dialog_select_language">Select language</string>
-    <string name="dialog_cancel">Cancel</string>
-    <string name="dialog_apply">Apply</string>
+    <string name="dialog_confirm_action">Confirm Action</string>
+    <string name="dialog_warning">Warning</string>
+    <string name="dialog_error">Error</string>
+    <string name="dialog_info">Information</string>
 
-    <!-- Content descriptions -->
+    <!-- Content Descriptions -->
     <string name="cd_theme_icon">Theme icon</string>
     <string name="cd_language_icon">Language icon</string>
     <string name="cd_arrow_right">Arrow right</string>
+    <string name="cd_add_button">Add button</string>
+    <string name="cd_delete_button">Delete button</string>
+    <string name="cd_edit_button">Edit button</string>
+    <string name="cd_search_button">Search button</string>
+    <string name="cd_menu_button">Menu button</string>
+    <string name="cd_back_button">Back button</string>
 
-    <!-- Pantry screen -->
-    <string name="pantry_quick_tip">Tap any pantry to manage its contents</string>
-    <string name="pantry_add_new">Add Pantry</string>
-    <string name="pantry_empty_title">No pantries yet</string>
-    <string name="pantry_empty_description">Create your first pantry to start organizing your food storage</string>
+    <!-- Error Messages -->
+    <string name="error_generic">Something went wrong. Please try again.</string>
+    <string name="error_network">Check your internet connection</string>
+    <string name="error_save_failed">Failed to save changes</string>
+    <string name="error_delete_failed">Failed to delete item</string>
+    <string name="error_load_failed">Failed to load data</string>
 
-    <!-- Pantry management -->
-    <string name="pantry_name_hint">Pantry name</string>
-    <string name="pantry_edit_name">Edit name</string>
-    <string name="pantry_delete">Delete pantry</string>
-    <string name="pantry_name_required">Name is required</string>
-    <string name="pantry_delete_confirm_title">Delete Pantry</string>
-    <string name="pantry_delete_confirm_message">Are you sure you want to delete \"%s\"? This action cannot be undone.</string>
-    <string name="dialog_add">Add</string>
+    <!-- Success Messages -->
+    <string name="success_saved">Saved successfully</string>
+    <string name="success_deleted">Deleted successfully</string>
+    <string name="success_updated">Updated successfully</string>
+    <string name="success_added">Added successfully</string>
 
-    <!-- Dialog actions -->
-    <string name="dialog_close">Close</string>
-    <string name="dialog_save">Save</string>
-    <string name="dialog_delete">Delete</string>
-    <string name="pantry_name_helper">Enter a descriptive name for your pantry</string>
-    <string name="pantry_quick_actions">Quick Actions</string>
-    <string name="pantry_delete_subtitle">Permanently remove this pantry</string>
-    <string name="pantry_name_too_long">Name is too long (max 50 characters)</string>
+    <!-- Loading States -->
+    <string name="loading">Loading...</string>
+    <string name="loading_pantries">Loading pantries...</string>
+    <string name="loading_products">Loading products...</string>
+
+    <!-- Empty States -->
+    <string name="empty_search_results">No results found</string>
+    <string name="empty_search_suggestion">Try adjusting your search terms</string>
+
+    <!-- Validation Messages -->
+    <string name="validation_field_required">This field is required</string>
+    <string name="validation_field_too_long">Text is too long</string>
+    <string name="validation_field_too_short">Text is too short</string>
+    <string name="validation_invalid_format">Invalid format</string>
+
+    <!-- Accessibility -->
+    <string name="a11y_double_tap_to_select">Double tap to select</string>
+    <string name="a11y_swipe_for_options">Swipe for more options</string>
 </resources>

@@ -1,24 +1,69 @@
 <resources>
+    <!-- App Identity -->
     <string name="app_name">EasyPantry</string>
+
+    <!-- Navigation -->
     <string name="navigation_drawer_open">Apri menu di navigazione</string>
     <string name="navigation_drawer_close">Chiudi menu di navigazione</string>
     <string name="nav_header_title">EasyPantry</string>
     <string name="nav_header_desc">Intestazione navigazione</string>
 
-    <!-- Menu items -->
+    <!-- Menu Items -->
     <string name="menu_home">Home</string>
     <string name="menu_pantry">Dispense</string>
     <string name="menu_products">Prodotti</string>
     <string name="menu_settings">Impostazioni</string>
 
-    <!-- Settings -->
+    <!-- Home Section -->
+    <string name="home_welcome">Benvenuto in EasyPantry</string>
+    <string name="home_subtitle">Gestisci le tue dispense e prodotti in modo efficiente</string>
+
+    <!-- Pantry Section -->
+    <string name="pantry_quick_tip">Tocca una dispensa per gestire il contenuto</string>
+    <string name="pantry_add_new">Aggiungi Dispensa</string>
+    <string name="pantry_empty_title">Nessuna dispensa ancora</string>
+    <string name="pantry_empty_description">Crea la tua prima dispensa per iniziare a organizzare i tuoi alimenti</string>
+    <string name="pantry_name_hint">Nome dispensa</string>
+    <string name="pantry_name_helper">Inserisci un nome descrittivo per la tua dispensa</string>
+    <string name="pantry_name_required">Il nome è obbligatorio</string>
+    <string name="pantry_name_too_long">Nome troppo lungo (massimo 50 caratteri)</string>
+    <string name="pantry_edit_name">Modifica nome</string>
+    <string name="pantry_delete">Elimina dispensa</string>
+    <string name="pantry_delete_subtitle">Rimuovi permanentemente questa dispensa</string>
+    <string name="pantry_quick_actions">Azioni Rapide</string>
+    <string name="pantry_delete_confirm_title">Elimina Dispensa</string>
+    <string name="pantry_delete_confirm_message">Sei sicuro di voler eliminare \"%s\"? Questa azione non può essere annullata.</string>
+
+    <!-- Product Section -->
+    <string name="product_search_hint">Cerca prodotti...</string>
+    <string name="product_add_new">Aggiungi Prodotto</string>
+    <string name="product_empty_title">Nessun prodotto ancora</string>
+    <string name="product_empty_description">Aggiungi il tuo primo prodotto per iniziare</string>
+    <string name="product_name_hint">Nome prodotto</string>
+    <string name="product_brand_hint">Marca (opzionale)</string>
+    <string name="product_name_required">Il nome del prodotto è obbligatorio</string>
+    <string name="product_edit_title">Modifica Prodotto</string>
+    <string name="product_add_title">Aggiungi Prodotto</string>
+    <string name="product_delete_confirm_title">Elimina Prodotto</string>
+    <string name="product_delete_confirm_message">Sei sicuro di voler eliminare \"%s\"?</string>
+
+    <!-- Settings Section -->
     <string name="settings_section_appearance">Aspetto</string>
     <string name="settings_section_about">Informazioni</string>
+    <string name="settings_section_data">Gestione Dati</string>
+    <string name="settings_section_support">Supporto</string>
     <string name="settings_theme">Tema</string>
     <string name="settings_language">Lingua</string>
     <string name="settings_app_version">Versione 1.0</string>
+    <string name="settings_backup">Backup Dati</string>
+    <string name="settings_restore">Ripristina Dati</string>
+    <string name="settings_export">Esporta Dati</string>
+    <string name="settings_import">Importa Dati</string>
+    <string name="settings_help">Aiuto e FAQ</string>
+    <string name="settings_contact">Contatta Supporto</string>
+    <string name="settings_rate_app">Valuta App</string>
 
-    <!-- Theme options -->
+    <!-- Theme Options -->
     <string name="theme_light">Chiaro</string>
     <string name="theme_dark">Scuro</string>
     <string name="theme_system">Di sistema</string>
@@ -26,44 +71,72 @@
     <string name="theme_dark_description">Usa sempre tema scuro</string>
     <string name="theme_system_description">Segui impostazioni sistema</string>
 
-    <!-- Language options -->
+    <!-- Language Options -->
     <string name="language_system">Di sistema</string>
     <string name="language_english">Inglese</string>
     <string name="language_italian">Italiano</string>
     <string name="language_system_description">Segui lingua del sistema</string>
 
-    <!-- Dialogs -->
+    <!-- Dialog Actions -->
+    <string name="dialog_add">Aggiungi</string>
+    <string name="dialog_save">Salva</string>
+    <string name="dialog_update">Aggiorna</string>
+    <string name="dialog_delete">Elimina</string>
+    <string name="dialog_cancel">Annulla</string>
+    <string name="dialog_close">Chiudi</string>
+    <string name="dialog_apply">Applica</string>
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_yes">Sì</string>
+    <string name="dialog_no">No</string>
+
+    <!-- Dialog Titles -->
     <string name="dialog_select_theme">Seleziona tema</string>
     <string name="dialog_select_language">Seleziona lingua</string>
-    <string name="dialog_cancel">Annulla</string>
-    <string name="dialog_apply">Applica</string>
+    <string name="dialog_confirm_action">Conferma Azione</string>
+    <string name="dialog_warning">Attenzione</string>
+    <string name="dialog_error">Errore</string>
+    <string name="dialog_info">Informazione</string>
 
-    <!-- Content descriptions -->
+    <!-- Content Descriptions -->
     <string name="cd_theme_icon">Icona tema</string>
     <string name="cd_language_icon">Icona lingua</string>
     <string name="cd_arrow_right">Freccia destra</string>
+    <string name="cd_add_button">Pulsante aggiungi</string>
+    <string name="cd_delete_button">Pulsante elimina</string>
+    <string name="cd_edit_button">Pulsante modifica</string>
+    <string name="cd_search_button">Pulsante ricerca</string>
+    <string name="cd_menu_button">Pulsante menu</string>
+    <string name="cd_back_button">Pulsante indietro</string>
 
-    <!-- Pantry screen -->
-    <string name="pantry_quick_tip">Tocca una dispensa per gestire il contenuto</string>
-    <string name="pantry_add_new">Aggiungi Dispensa</string>
-    <string name="pantry_empty_title">Nessuna dispensa ancora</string>
-    <string name="pantry_empty_description">Crea la tua prima dispensa per iniziare a organizzare i tuoi alimenti</string>
+    <!-- Error Messages -->
+    <string name="error_generic">Qualcosa è andato storto. Riprova.</string>
+    <string name="error_network">Controlla la connessione internet</string>
+    <string name="error_save_failed">Salvataggio fallito</string>
+    <string name="error_delete_failed">Eliminazione fallita</string>
+    <string name="error_load_failed">Caricamento dati fallito</string>
 
-    <!-- Pantry management -->
-    <string name="pantry_name_hint">Nome dispensa</string>
-    <string name="pantry_edit_name">Modifica nome</string>
-    <string name="pantry_delete">Elimina dispensa</string>
-    <string name="pantry_name_required">Il nome è obbligatorio</string>
-    <string name="pantry_delete_confirm_title">Elimina Dispensa</string>
-    <string name="pantry_delete_confirm_message">Sei sicuro di voler eliminare \"%s\"? Questa azione non può essere annullata.</string>
-    <string name="dialog_add">Aggiungi</string>
+    <!-- Success Messages -->
+    <string name="success_saved">Salvato con successo</string>
+    <string name="success_deleted">Eliminato con successo</string>
+    <string name="success_updated">Aggiornato con successo</string>
+    <string name="success_added">Aggiunto con successo</string>
 
-    <!-- Dialog actions -->
-    <string name="dialog_close">Chiudi</string>
-    <string name="dialog_save">Salva</string>
-    <string name="dialog_delete">Elimina</string>
-    <string name="pantry_name_helper">Inserisci un nome descrittivo per la tua dispensa</string>
-    <string name="pantry_quick_actions">Azioni Rapide</string>
-    <string name="pantry_delete_subtitle">Rimuovi permanentemente questa dispensa</string>
-    <string name="pantry_name_too_long">Nome troppo lungo (massimo 50 caratteri)</string>
+    <!-- Loading States -->
+    <string name="loading">Caricamento...</string>
+    <string name="loading_pantries">Caricamento dispense...</string>
+    <string name="loading_products">Caricamento prodotti...</string>
+
+    <!-- Empty States -->
+    <string name="empty_search_results">Nessun risultato trovato</string>
+    <string name="empty_search_suggestion">Prova a modificare i termini di ricerca</string>
+
+    <!-- Validation Messages -->
+    <string name="validation_field_required">Questo campo è obbligatorio</string>
+    <string name="validation_field_too_long">Testo troppo lungo</string>
+    <string name="validation_field_too_short">Testo troppo corto</string>
+    <string name="validation_invalid_format">Formato non valido</string>
+
+    <!-- Accessibility -->
+    <string name="a11y_double_tap_to_select">Tocca due volte per selezionare</string>
+    <string name="a11y_swipe_for_options">Scorri per più opzioni</string>
 </resources>
