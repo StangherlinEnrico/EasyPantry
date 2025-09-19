@@ -148,4 +148,22 @@
     <!-- Product Section - Management strings -->
     <string name="product_delete">Elimina prodotto</string>
     <string name="product_delete_subtitle">Rimuovi permanentemente questo prodotto</string>
+
+    <string name="menu_items">Articoli</string>
+
+    <!-- Items Section -->
+    <string name="items_group_by_pantry">Raggruppa per Dispensa</string>
+    <string name="items_show_all">Mostra Tutti</string>
+    <string name="items_add_new">Aggiungi Articolo</string>
+    <string name="items_empty_title">Nessun articolo ancora</string>
+    <string name="items_empty_description">Aggiungi il tuo primo articolo per iniziare</string>
+
+    <string name="items_search_hint">Cerca articoli, marche, dispense...</string>
+
+    <!-- Items Section - Aggiungi queste -->
+    <string name="items_quantity_format">%d %s</string>
+    <string name="items_no_brand">Senza marca</string>
+
+    <string name="items_count_single">%d articolo</string>
+    <string name="items_count_plural">%d articoli</string>
 </resources>

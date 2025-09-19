@@ -148,4 +148,22 @@
     <!-- Product Section - Management strings -->
     <string name="product_delete">Delete product</string>
     <string name="product_delete_subtitle">Permanently remove this product</string>
+
+    <string name="menu_items">Items</string>
+
+    <!-- Items Section -->
+    <string name="items_group_by_pantry">Group by Pantry</string>
+    <string name="items_show_all">Show All Items</string>
+    <string name="items_add_new">Add Item</string>
+    <string name="items_empty_title">No items yet</string>
+    <string name="items_empty_description">Add your first item to get started</string>
+
+    <string name="items_search_hint">Search items, brands, pantries...</string>
+
+    <!-- Items Section - Aggiungi queste -->
+    <string name="items_quantity_format">%d %s</string>
+    <string name="items_no_brand">No brand</string>
+
+    <string name="items_count_single">%d item</string>
+    <string name="items_count_plural">%d items</string>
 </resources>
