@@ -10,14 +10,16 @@ import androidx.annotation.NonNull;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import com.stanga.easypantry.database.dao.PantryItemDao;
 import com.stanga.easypantry.database.entities.Pantry;
+import com.stanga.easypantry.database.entities.PantryItem;
 import com.stanga.easypantry.database.entities.Product;
 import com.stanga.easypantry.database.dao.PantryDao;
 import com.stanga.easypantry.database.dao.ProductDao;
 import com.stanga.easypantry.utils.Converters;
 
 @Database(
-        entities = {Pantry.class, Product.class},
+        entities = {Pantry.class, Product.class, PantryItem.class},
         version = 1,
         exportSchema = false
 )
@@ -30,6 +32,7 @@ public abstract class AppDatabase extends RoomDatabase {
 
     public abstract PantryDao pantryDao();
     public abstract ProductDao productDao();
+    public abstract PantryItemDao pantryItemDao();
 
     private static RoomDatabase.Callback sRoomDatabaseCallback = new RoomDatabase.Callback() {
         @Override
