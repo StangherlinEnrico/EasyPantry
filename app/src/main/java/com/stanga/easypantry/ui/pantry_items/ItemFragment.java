@@ -10,10 +10,11 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import com.stanga.easypantry.R;
+import com.stanga.easypantry.database.entities.PantryItemWithDetails;
 import com.stanga.easypantry.databinding.FragmentItemBinding;
 import com.stanga.easypantry.enums.ItemsViewMode;
 
-public class ItemFragment extends Fragment {
+public class ItemFragment extends Fragment implements OnPantryItemClickListener {
     private FragmentItemBinding binding;
     private PantryItemViewModel viewModel;
     private PantryItemAdapter adapter;
@@ -32,9 +33,16 @@ public class ItemFragment extends Fragment {
     }
 
     private void setupRecyclerView() {
-        adapter = new PantryItemAdapter();
+        adapter = new PantryItemAdapter(this); // PASSA THIS
         groupAdapter = new PantryGroupAdapter();
+        groupAdapter.setOnItemClickListener(this); // IMPOSTA LISTENER
         binding.recyclerViewItems.setLayoutManager(new LinearLayoutManager(getContext()));
+    }
+
+    @Override
+    public void onPantryItemClick(PantryItemWithDetails item) {
+        ItemManageDialogFragment.newInstance(item)
+                .show(getChildFragmentManager(), "ManageItemDialog");
     }
 
     private void setupSearch() {

@@ -5,6 +5,8 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Transformations;
+
+import com.stanga.easypantry.database.entities.PantryItem;
 import com.stanga.easypantry.database.entities.PantryItemWithDetails;
 import com.stanga.easypantry.database.repositories.PantryItemRepository;
 import com.stanga.easypantry.enums.ItemsViewMode;
@@ -64,5 +66,19 @@ public class PantryItemViewModel extends AndroidViewModel {
 
     public ItemsViewMode getCurrentViewMode() {
         return ItemsViewHelper.getSavedItemsViewMode(getApplication());
+    }
+
+    // Aggiungi questi metodi alla fine della classe PantryItemViewModel
+    public void updatePantryItemQuantity(int itemId, int newQuantity) {
+        repository.updateQuantity(itemId, newQuantity);
+    }
+
+    public void deletePantryItem(PantryItemWithDetails item) {
+        // Converti PantryItemWithDetails in PantryItem per il repository
+        PantryItem pantryItem = new PantryItem(item.productId, item.pantryId, item.quantity);
+        pantryItem.id = item.id;
+        pantryItem.expiryDate = item.expiryDate;
+        pantryItem.notes = item.notes;
+        repository.delete(pantryItem);
     }
 }

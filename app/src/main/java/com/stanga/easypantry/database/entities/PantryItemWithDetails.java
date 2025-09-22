@@ -1,9 +1,10 @@
 package com.stanga.easypantry.database.entities;
 
 import androidx.room.ColumnInfo;
+import java.io.Serializable;
 import java.util.Date;
 
-public class PantryItemWithDetails {
+public class PantryItemWithDetails implements Serializable { // AGGIUNGI implements Serializable
     // Dati da pantry_items
     public int id;
 

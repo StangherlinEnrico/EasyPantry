@@ -17,10 +17,15 @@ import java.util.Map;
 public class PantryGroupAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private static final int TYPE_HEADER = 0;
     private static final int TYPE_ITEM = 1;
+    private OnPantryItemClickListener listener;
 
     private List<Object> items = new ArrayList<>();
     private List<PantryGroup> groups = new ArrayList<>();
     private Map<String, Boolean> expandedState = new HashMap<>();
+
+    public void setOnItemClickListener(OnPantryItemClickListener listener) {
+        this.listener = listener;
+    }
 
     public void setGroupedItems(List<PantryGroup> groups) {
         this.groups = groups;
@@ -78,7 +83,7 @@ public class PantryGroupAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             ((HeaderViewHolder) holder).bind(pantryName, getItemCountForPantry(pantryName), expandedState.get(pantryName));
         } else {
             PantryItemWithDetails item = (PantryItemWithDetails) items.get(position);
-            ((ItemViewHolder) holder).bind(item);
+            ((ItemViewHolder) holder).bind(item, listener); // PASSA IL LISTENER
         }
     }
 
@@ -133,7 +138,7 @@ public class PantryGroupAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             quantity = view.findViewById(R.id.text_quantity);
         }
 
-        void bind(PantryItemWithDetails item) {
+        void bind(PantryItemWithDetails item, OnPantryItemClickListener listener) { // MODIFICA PARAMETRI
             productName.setText(item.productName);
 
             if (item.productBrand != null && !item.productBrand.trim().isEmpty()) {
@@ -144,6 +149,11 @@ public class PantryGroupAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             }
 
             quantity.setText(item.quantity + "g");
+
+            // AGGIUNGI CLICK LISTENER
+            itemView.setOnClickListener(v -> {
+                if (listener != null) listener.onPantryItemClick(item);
+            });
         }
     }
 

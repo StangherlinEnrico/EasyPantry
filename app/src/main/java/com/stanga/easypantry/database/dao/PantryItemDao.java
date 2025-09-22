@@ -62,4 +62,8 @@ public interface PantryItemDao {
             "pa.name LIKE :searchQuery " +
             "ORDER BY pa.name, p.name")
     LiveData<List<PantryItemWithDetails>> searchPantryItems(String searchQuery);
+
+    // Aggiungi questo metodo all'interface PantryItemDao
+    @Query("UPDATE pantry_items SET quantity = :newQuantity WHERE id = :itemId")
+    void updateQuantity(int itemId, int newQuantity);
 }

@@ -7,6 +7,9 @@ import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 import android.content.Context;
 import androidx.annotation.NonNull;
+
+import java.util.Calendar;
+import java.util.Date;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -81,24 +84,90 @@ public abstract class AppDatabase extends RoomDatabase {
         productDao.insertProduct(new Product("Semola rimacinata", "Caputo"));
         productDao.insertProduct(new Product("Farina tipo 00", "Belbake"));
 
-        // Add pantry items
+        // Add pantry items with expiry dates
         PantryItemDao pantryItemDao = INSTANCE.pantryItemDao();
 
+        // Helper per creare date future
+        Calendar calendar = Calendar.getInstance();
+
         // Dispensa cucina (pantry_id = 1)
-        pantryItemDao.insertPantryItem(new PantryItem(1, 1, 1000)); // Farina senza glutine Caputo - 1kg
-        pantryItemDao.insertPantryItem(new PantryItem(3, 1, 2500)); // Pizzeria Caputo - 2.5kg
-        pantryItemDao.insertPantryItem(new PantryItem(4, 1, 500));  // Nuvola Caputo - 500g
-        pantryItemDao.insertPantryItem(new PantryItem(7, 1, 300));  // Farina di riso - 300g
-        pantryItemDao.insertPantryItem(new PantryItem(8, 1, 250));  // Farina di ceci - 250g
-        pantryItemDao.insertPantryItem(new PantryItem(12, 1, 1000)); // Semola rimacinata - 1kg
+        PantryItem item1 = new PantryItem(1, 1, 1000); // Farina senza glutine Caputo - 1kg
+        calendar.setTime(new Date());
+        calendar.add(Calendar.MONTH, 8);
+        item1.expiryDate = calendar.getTime();
+        pantryItemDao.insertPantryItem(item1);
+
+        PantryItem item2 = new PantryItem(3, 1, 2500); // Pizzeria Caputo - 2.5kg
+        calendar.setTime(new Date());
+        calendar.add(Calendar.MONTH, 12);
+        item2.expiryDate = calendar.getTime();
+        pantryItemDao.insertPantryItem(item2);
+
+        PantryItem item3 = new PantryItem(4, 1, 500); // Nuvola Caputo - 500g
+        calendar.setTime(new Date());
+        calendar.add(Calendar.MONTH, 10);
+        item3.expiryDate = calendar.getTime();
+        pantryItemDao.insertPantryItem(item3);
+
+        PantryItem item4 = new PantryItem(7, 1, 300); // Farina di riso - 300g
+        calendar.setTime(new Date());
+        calendar.add(Calendar.MONTH, 6);
+        item4.expiryDate = calendar.getTime();
+        pantryItemDao.insertPantryItem(item4);
+
+        PantryItem item5 = new PantryItem(8, 1, 250); // Farina di ceci - 250g
+        calendar.setTime(new Date());
+        calendar.add(Calendar.MONTH, 9);
+        item5.expiryDate = calendar.getTime();
+        pantryItemDao.insertPantryItem(item5);
+
+        PantryItem item6 = new PantryItem(12, 1, 1000); // Semola rimacinata - 1kg
+        calendar.setTime(new Date());
+        calendar.add(Calendar.MONTH, 15);
+        item6.expiryDate = calendar.getTime();
+        pantryItemDao.insertPantryItem(item6);
 
         // Dispensa soggiorno (pantry_id = 2)
-        pantryItemDao.insertPantryItem(new PantryItem(2, 2, 1000)); // Farina tipo 0 Vigevano - 1kg
-        pantryItemDao.insertPantryItem(new PantryItem(5, 2, 5000)); // Farina tipo 0 Cosma - 5kg
-        pantryItemDao.insertPantryItem(new PantryItem(6, 2, 1000)); // Farina tipo 00 Cosma - 1kg
-        pantryItemDao.insertPantryItem(new PantryItem(9, 2, 400));  // Farina farro - 400g
-        pantryItemDao.insertPantryItem(new PantryItem(10, 2, 350)); // Farina grano saraceno - 350g
-        pantryItemDao.insertPantryItem(new PantryItem(11, 2, 200)); // Farina d'avena - 200g
-        pantryItemDao.insertPantryItem(new PantryItem(13, 2, 1000)); // Farina tipo 00 Belbake - 1kg
+        PantryItem item7 = new PantryItem(2, 2, 1000); // Farina tipo 0 Vigevano - 1kg
+        calendar.setTime(new Date());
+        calendar.add(Calendar.MONTH, 7);
+        item7.expiryDate = calendar.getTime();
+        pantryItemDao.insertPantryItem(item7);
+
+        PantryItem item8 = new PantryItem(5, 2, 5000); // Farina tipo 0 Cosma - 5kg
+        calendar.setTime(new Date());
+        calendar.add(Calendar.MONTH, 18);
+        item8.expiryDate = calendar.getTime();
+        pantryItemDao.insertPantryItem(item8);
+
+        PantryItem item9 = new PantryItem(6, 2, 1000); // Farina tipo 00 Cosma - 1kg
+        calendar.setTime(new Date());
+        calendar.add(Calendar.MONTH, 11);
+        item9.expiryDate = calendar.getTime();
+        pantryItemDao.insertPantryItem(item9);
+
+        PantryItem item10 = new PantryItem(9, 2, 400); // Farina farro - 400g
+        calendar.setTime(new Date());
+        calendar.add(Calendar.MONTH, 5);
+        item10.expiryDate = calendar.getTime();
+        pantryItemDao.insertPantryItem(item10);
+
+        PantryItem item11 = new PantryItem(10, 2, 350); // Farina grano saraceno - 350g
+        calendar.setTime(new Date());
+        calendar.add(Calendar.MONTH, 4);
+        item11.expiryDate = calendar.getTime();
+        pantryItemDao.insertPantryItem(item11);
+
+        PantryItem item12 = new PantryItem(11, 2, 200); // Farina d'avena - 200g
+        calendar.setTime(new Date());
+        calendar.add(Calendar.MONTH, 14);
+        item12.expiryDate = calendar.getTime();
+        pantryItemDao.insertPantryItem(item12);
+
+        PantryItem item13 = new PantryItem(13, 2, 1000); // Farina tipo 00 Belbake - 1kg
+        calendar.setTime(new Date());
+        calendar.add(Calendar.MONTH, 16);
+        item13.expiryDate = calendar.getTime();
+        pantryItemDao.insertPantryItem(item13);
     }
 }

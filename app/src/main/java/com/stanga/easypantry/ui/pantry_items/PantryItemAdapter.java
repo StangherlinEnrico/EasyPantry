@@ -13,6 +13,11 @@ import java.util.List;
 
 public class PantryItemAdapter extends RecyclerView.Adapter<PantryItemAdapter.ItemViewHolder> {
     private List<PantryItemWithDetails> items = new ArrayList<>();
+    private OnPantryItemClickListener listener;
+
+    public PantryItemAdapter(OnPantryItemClickListener listener) {
+        this.listener = listener;
+    }
 
     @NonNull
     @Override
@@ -25,7 +30,7 @@ public class PantryItemAdapter extends RecyclerView.Adapter<PantryItemAdapter.It
     @Override
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
         PantryItemWithDetails item = items.get(position);
-        holder.bind(item);
+        holder.bind(item, listener); // PASSA IL LISTENER
     }
 
     @Override
@@ -49,7 +54,7 @@ public class PantryItemAdapter extends RecyclerView.Adapter<PantryItemAdapter.It
             quantity = itemView.findViewById(R.id.text_quantity);
         }
 
-        public void bind(PantryItemWithDetails item) {
+        public void bind(PantryItemWithDetails item, OnPantryItemClickListener listener) { // MODIFICA PARAMETRI
             productName.setText(item.productName);
 
             if (item.productBrand != null && !item.productBrand.trim().isEmpty()) {
@@ -61,6 +66,11 @@ public class PantryItemAdapter extends RecyclerView.Adapter<PantryItemAdapter.It
 
             pantryName.setText(item.pantryName);
             quantity.setText(String.valueOf(item.quantity) + "g");
+
+            // AGGIUNGI CLICK LISTENER
+            itemView.setOnClickListener(v -> {
+                if (listener != null) listener.onPantryItemClick(item);
+            });
         }
     }
 }

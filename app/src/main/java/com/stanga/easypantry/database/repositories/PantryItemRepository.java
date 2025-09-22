@@ -70,4 +70,12 @@ public class PantryItemRepository {
     public LiveData<List<PantryItemWithDetails>> searchPantryItems(String searchQuery) {
         return pantryItemDao.searchPantryItems("%" + searchQuery + "%");
     }
+
+    // Aggiungi questo metodo alla classe PantryItemRepository
+    public void updateQuantity(int itemId, int newQuantity) {
+        AppDatabase.databaseWriteExecutor.execute(() -> {
+            // Prima ottieni l'item esistente e aggiorna solo la quantità
+            pantryItemDao.updateQuantity(itemId, newQuantity);
+        });
+    }
 }
