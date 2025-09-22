@@ -216,4 +216,11 @@
     <string name="unit_tubetto">tubetto</string>
     <string name="unit_vasetto">vasetto</string>
     <string name="unit_pz">pz</string>
+
+    <string name="settings_items_view">Items Display</string>
+    <string name="dialog_select_items_view">Select display mode</string>
+    <string name="items_view_grouped_description">Group items by pantry</string>
+    <string name="items_view_all_description">Show all items in one list</string>
+    <string name="cd_items_view_icon">Items view icon</string>
+    <string name="settings_section_display">Display</string>
 </resources>

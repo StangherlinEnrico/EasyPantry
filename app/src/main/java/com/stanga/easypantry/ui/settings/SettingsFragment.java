@@ -12,8 +12,10 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.stanga.easypantry.MainActivity;
 import com.stanga.easypantry.databinding.FragmentSettingsBinding;
+import com.stanga.easypantry.enums.ItemsViewMode;
 import com.stanga.easypantry.enums.LanguageMode;
 import com.stanga.easypantry.enums.ThemeMode;
+import com.stanga.easypantry.utils.ItemsViewHelper;
 import com.stanga.easypantry.utils.LanguageHelper;
 import com.stanga.easypantry.utils.ThemeHelper;
 
@@ -31,10 +33,32 @@ public class SettingsFragment extends Fragment {
 
         setupThemeSelector();
         setupLanguageSelector();
+        setupItemsViewSelector(); // AGGIUNGI QUESTA RIGA
         updateThemeText();
         updateLanguageText();
+        updateItemsViewText(); // AGGIUNGI QUESTA RIGA
 
         return root;
+    }
+
+    private void setupItemsViewSelector() {
+        binding.itemsViewSelector.setOnClickListener(v -> showCustomItemsViewDialog());
+    }
+
+    private void showCustomItemsViewDialog() {
+        ItemsViewMode currentViewMode = ItemsViewHelper.getSavedItemsViewMode(requireContext());
+
+        CustomItemsViewDialog dialog = new CustomItemsViewDialog(requireContext(), currentViewMode, selectedViewMode -> {
+            ItemsViewHelper.saveItemsViewMode(requireContext(), selectedViewMode);
+            updateItemsViewText();
+        });
+
+        dialog.show();
+    }
+
+    private void updateItemsViewText() {
+        ItemsViewMode currentViewMode = ItemsViewHelper.getSavedItemsViewMode(requireContext());
+        binding.itemsViewValue.setText(currentViewMode.getDisplayName(requireContext()));
     }
 
     private void setupThemeSelector() {

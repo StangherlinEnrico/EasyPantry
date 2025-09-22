@@ -216,4 +216,11 @@
     <string name="unit_tubetto">tubetto</string>
     <string name="unit_vasetto">vasetto</string>
     <string name="unit_pz">pz</string>
+
+    <string name="settings_items_view">Visualizzazione Articoli</string>
+    <string name="dialog_select_items_view">Seleziona modalità visualizzazione</string>
+    <string name="items_view_grouped_description">Raggruppa articoli per dispensa</string>
+    <string name="items_view_all_description">Mostra tutti gli articoli in una lista</string>
+    <string name="cd_items_view_icon">Icona visualizzazione articoli</string>
+    <string name="settings_section_display">Visualizzazione</string>
 </resources>
