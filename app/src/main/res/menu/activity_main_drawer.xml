@@ -9,6 +9,10 @@
             android:icon="@drawable/ic_menu_camera"
             android:title="@string/menu_home" />
         <item
+            android:id="@+id/nav_items"
+            android:icon="@drawable/ic_menu_items"
+            android:title="@string/menu_items" />
+        <item
             android:id="@+id/nav_pantry"
             android:icon="@drawable/ic_menu_pantry"
             android:title="@string/menu_pantry" />

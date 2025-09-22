@@ -28,4 +28,10 @@
         android:name="com.stanga.easypantry.ui.settings.SettingsFragment"
         android:label="@string/menu_settings"
         tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/nav_items"
+        android:name="com.stanga.easypantry.ui.pantry_items.ItemFragment"
+        android:label="@string/menu_items"
+        tools:layout="@layout/fragment_item" />
 </navigation>
