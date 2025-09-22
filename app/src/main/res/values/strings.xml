@@ -223,4 +223,9 @@
     <string name="items_view_all_description">Show all items in one list</string>
     <string name="cd_items_view_icon">Items view icon</string>
     <string name="settings_section_display">Display</string>
+    <plurals name="items_count">
+        <item quantity="one">%d item</item>
+        <item quantity="other">%d items</item>
+    </plurals>
+    <string name="cd_expand_collapse">Expand/Collapse</string>
 </resources>

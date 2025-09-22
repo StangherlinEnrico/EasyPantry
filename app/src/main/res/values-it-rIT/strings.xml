@@ -223,4 +223,9 @@
     <string name="items_view_all_description">Mostra tutti gli articoli in una lista</string>
     <string name="cd_items_view_icon">Icona visualizzazione articoli</string>
     <string name="settings_section_display">Visualizzazione</string>
+    <plurals name="items_count">
+        <item quantity="one">%d articolo</item>
+        <item quantity="other">%d articoli</item>
+    </plurals>
+    <string name="cd_expand_collapse">Espandi/Comprimi</string>
 </resources>

@@ -5,6 +5,8 @@ import androidx.lifecycle.LiveData;
 import com.stanga.easypantry.database.AppDatabase;
 import com.stanga.easypantry.database.dao.PantryItemDao;
 import com.stanga.easypantry.database.entities.PantryItem;
+import com.stanga.easypantry.database.entities.PantryItemWithDetails;
+
 import java.util.List;
 
 public class PantryItemRepository {
@@ -59,5 +61,13 @@ public class PantryItemRepository {
     // Verifica se una dispensa può essere eliminata
     public boolean canDeletePantry(int pantryId) {
         return pantryItemDao.getPantryUsageCount(pantryId) == 0;
+    }
+
+    public LiveData<List<PantryItemWithDetails>> getAllPantryItemsWithDetails() {
+        return pantryItemDao.getAllPantryItemsWithDetails();
+    }
+
+    public LiveData<List<PantryItemWithDetails>> searchPantryItems(String searchQuery) {
+        return pantryItemDao.searchPantryItems("%" + searchQuery + "%");
     }
 }

@@ -52,4 +52,14 @@ public interface PantryItemDao {
             "INNER JOIN products p ON pi.product_id = p.id " +
             "INNER JOIN pantries pa ON pi.pantry_id = pa.id")
     LiveData<List<PantryItemWithDetails>> getAllPantryItemsWithDetails();
+
+    @Query("SELECT pi.*, p.name as product_name, p.brand as product_brand, " +
+            "pa.name as pantry_name FROM pantry_items pi " +
+            "INNER JOIN products p ON pi.product_id = p.id " +
+            "INNER JOIN pantries pa ON pi.pantry_id = pa.id " +
+            "WHERE p.name LIKE :searchQuery OR " +
+            "p.brand LIKE :searchQuery OR " +
+            "pa.name LIKE :searchQuery " +
+            "ORDER BY pa.name, p.name")
+    LiveData<List<PantryItemWithDetails>> searchPantryItems(String searchQuery);
 }

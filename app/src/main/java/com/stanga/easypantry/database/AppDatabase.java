@@ -80,5 +80,25 @@ public abstract class AppDatabase extends RoomDatabase {
         productDao.insertProduct(new Product("Farina d'avena", "Rossetto"));
         productDao.insertProduct(new Product("Semola rimacinata", "Caputo"));
         productDao.insertProduct(new Product("Farina tipo 00", "Belbake"));
+
+        // Add pantry items
+        PantryItemDao pantryItemDao = INSTANCE.pantryItemDao();
+
+        // Dispensa cucina (pantry_id = 1)
+        pantryItemDao.insertPantryItem(new PantryItem(1, 1, 1000)); // Farina senza glutine Caputo - 1kg
+        pantryItemDao.insertPantryItem(new PantryItem(3, 1, 2500)); // Pizzeria Caputo - 2.5kg
+        pantryItemDao.insertPantryItem(new PantryItem(4, 1, 500));  // Nuvola Caputo - 500g
+        pantryItemDao.insertPantryItem(new PantryItem(7, 1, 300));  // Farina di riso - 300g
+        pantryItemDao.insertPantryItem(new PantryItem(8, 1, 250));  // Farina di ceci - 250g
+        pantryItemDao.insertPantryItem(new PantryItem(12, 1, 1000)); // Semola rimacinata - 1kg
+
+        // Dispensa soggiorno (pantry_id = 2)
+        pantryItemDao.insertPantryItem(new PantryItem(2, 2, 1000)); // Farina tipo 0 Vigevano - 1kg
+        pantryItemDao.insertPantryItem(new PantryItem(5, 2, 5000)); // Farina tipo 0 Cosma - 5kg
+        pantryItemDao.insertPantryItem(new PantryItem(6, 2, 1000)); // Farina tipo 00 Cosma - 1kg
+        pantryItemDao.insertPantryItem(new PantryItem(9, 2, 400));  // Farina farro - 400g
+        pantryItemDao.insertPantryItem(new PantryItem(10, 2, 350)); // Farina grano saraceno - 350g
+        pantryItemDao.insertPantryItem(new PantryItem(11, 2, 200)); // Farina d'avena - 200g
+        pantryItemDao.insertPantryItem(new PantryItem(13, 2, 1000)); // Farina tipo 00 Belbake - 1kg
     }
 }
