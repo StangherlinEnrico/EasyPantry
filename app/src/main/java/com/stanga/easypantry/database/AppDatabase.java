@@ -12,15 +12,13 @@ import java.util.concurrent.Executors;
 
 import com.stanga.easypantry.database.entities.Pantry;
 import com.stanga.easypantry.database.entities.Product;
-import com.stanga.easypantry.database.entities.PantryItem;
 import com.stanga.easypantry.database.dao.PantryDao;
 import com.stanga.easypantry.database.dao.ProductDao;
-import com.stanga.easypantry.database.dao.PantryItemDao;
 import com.stanga.easypantry.utils.Converters;
 
 @Database(
-        entities = {Pantry.class, Product.class, PantryItem.class},
-        version = 2,
+        entities = {Pantry.class, Product.class},
+        version = 1,
         exportSchema = false
 )
 @TypeConverters({Converters.class})
@@ -32,7 +30,6 @@ public abstract class AppDatabase extends RoomDatabase {
 
     public abstract PantryDao pantryDao();
     public abstract ProductDao productDao();
-    public abstract PantryItemDao pantryItemDao();
 
     private static RoomDatabase.Callback sRoomDatabaseCallback = new RoomDatabase.Callback() {
         @Override
@@ -41,8 +38,7 @@ public abstract class AppDatabase extends RoomDatabase {
             databaseWriteExecutor.execute(() -> {
                 PantryDao pantryDao = INSTANCE.pantryDao();
                 ProductDao productDao = INSTANCE.productDao();
-                PantryItemDao pantryItemDao = INSTANCE.pantryItemDao();
-                populateInitialData(pantryDao, productDao, pantryItemDao);
+                populateInitialData(pantryDao, productDao);
             });
         }
     };
@@ -62,7 +58,7 @@ public abstract class AppDatabase extends RoomDatabase {
         return INSTANCE;
     }
 
-    private static void populateInitialData(PantryDao pantryDao, ProductDao productDao, PantryItemDao pantryItemDao) {
+    private static void populateInitialData(PantryDao pantryDao, ProductDao productDao) {
         // Create pantries
         pantryDao.insertPantry(new Pantry("Dispensa cucina"));
         pantryDao.insertPantry(new Pantry("Dispensa soggiorno"));
@@ -81,23 +77,5 @@ public abstract class AppDatabase extends RoomDatabase {
         productDao.insertProduct(new Product("Farina d'avena", "Rossetto"));
         productDao.insertProduct(new Product("Semola rimacinata", "Caputo"));
         productDao.insertProduct(new Product("Farina tipo 00", "Belbake"));
-
-        // Add pantry items (assuming IDs start from 1)
-        // Dispensa cucina (pantry_id = 1)
-        pantryItemDao.insertPantryItem(new PantryItem(1, 1, 2, "kg")); // Farina senza glutine Caputo
-        pantryItemDao.insertPantryItem(new PantryItem(3, 1, 1, "kg")); // Pizzeria Farina Caputo
-        pantryItemDao.insertPantryItem(new PantryItem(4, 1, 3, "kg")); // Nuvola Farina Caputo
-        pantryItemDao.insertPantryItem(new PantryItem(7, 1, 1, "confezione")); // Farina di riso Rossetto
-        pantryItemDao.insertPantryItem(new PantryItem(8, 1, 2, "confezione")); // Farina di ceci Rossetto
-        pantryItemDao.insertPantryItem(new PantryItem(12, 1, 1, "kg")); // Semola rimacinata Caputo
-
-        // Dispensa soggiorno (pantry_id = 2)
-        pantryItemDao.insertPantryItem(new PantryItem(2, 2, 2, "kg")); // Farina tipo 0 Vigevano
-        pantryItemDao.insertPantryItem(new PantryItem(5, 2, 1, "kg")); // Farina tipo 0 Molino Cosma
-        pantryItemDao.insertPantryItem(new PantryItem(6, 2, 1, "kg")); // Farina tipo 00 Molino Cosma
-        pantryItemDao.insertPantryItem(new PantryItem(9, 2, 1, "confezione")); // Farina integrale farro Rachello
-        pantryItemDao.insertPantryItem(new PantryItem(10, 2, 1, "confezione")); // Farina grano saraceno Ruggeri
-        pantryItemDao.insertPantryItem(new PantryItem(11, 2, 2, "confezione")); // Farina d'avena Rossetto
-        pantryItemDao.insertPantryItem(new PantryItem(13, 2, 1, "kg")); // Farina tipo 00 Belbake
     }
 }
